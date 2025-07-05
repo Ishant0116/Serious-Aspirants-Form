@@ -3,83 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Study Hours Tracker Registration</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Study Hours Group Form</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="form-box">
-    <h2>🔥 Study Hours Tracker - Registration</h2>
+  <div class="container">
+    <h1>📚 Study Hours Group - Join Now</h1>
     <p class="tagline">"Jo sapne raaton mein jalte hain, unhe din ke andhere bhi nahi rok sakte."</p>
+
     <form id="studyForm">
+      <label>Full Name</label>
+      <input type="text" name="name" required />
 
-      <label>1. Full Name</label>
-      <input type="text" id="name" required />
+      <label>Telegram Username (Without @)</label>
+      <input type="text" name="username" required />
 
-      <label>2. Telegram Username (without @)</label>
-      <input type="text" id="username" required />
-
-      <label>3. Class / Grade</label>
-      <select id="class" required>
-        <option disabled selected>Select</option>
-        <option>Class 9</option>
-        <option>Class 10</option>
-        <option>Class 11</option>
-        <option>Class 12</option>
-        <option>Dropper</option>
-        <option>College Student</option>
-        <option>Other</option>
+      <label>Class / Grade</label>
+      <select name="class" required>
+        <option value="">--Select--</option>
+        <option value="9">Class 9</option>
+        <option value="10">Class 10</option>
+        <option value="11">Class 11</option>
+        <option value="12">Class 12</option>
+        <option value="Dropper">Dropper</option>
+        <option value="College">College Student</option>
+        <option value="Other">Other</option>
       </select>
 
-      <label>4. Exam You’re Preparing For</label>
-      <div class="checkboxes">
-        <label><input type="checkbox" value="JEE Main" /> JEE Main</label>
-        <label><input type="checkbox" value="JEE Advanced" /> JEE Advanced</label>
-        <label><input type="checkbox" value="NEET" /> NEET</label>
-        <label><input type="checkbox" value="CUET" /> CUET</label>
-        <label><input type="checkbox" value="Boards" /> Boards</label>
-        <label><input type="checkbox" value="School Exams" /> School Exams</label>
-        <label><input type="checkbox" value="Other" /> Other</label>
-      </div>
-
-      <label>5. Daily Study Hours</label>
-      <select id="hours" required>
-        <option disabled selected>Select</option>
-        <option>Less than 2 hours</option>
-        <option>2–4 hours</option>
-        <option>4–6 hours</option>
-        <option>6–8 hours</option>
-        <option>8+ hours 🔥</option>
+      <label>Target Exam</label>
+      <select name="exam" required>
+        <option value="">--Select--</option>
+        <option value="JEE Main">JEE Main</option>
+        <option value="JEE Advanced">JEE Advanced</option>
+        <option value="NEET">NEET</option>
+        <option value="Boards">Boards</option>
+        <option value="CUET">CUET</option>
+        <option value="School">School Exams</option>
+        <option value="Other">Other</option>
       </select>
 
-      <label>6. Why do you want to join this group?</label>
-      <textarea id="why" required></textarea>
-
-      <label>7. Are you serious and consistent?</label>
-      <select id="serious" required>
-        <option disabled selected>Select</option>
-        <option>Yes</option>
-        <option>No</option>
-        <option>Trying my best</option>
+      <label>Average Daily Study Hours</label>
+      <select name="hours" required>
+        <option value="">--Select--</option>
+        <option value="Less than 2">Less than 2 hours</option>
+        <option value="2-4">2-4 hours</option>
+        <option value="4-6">4-6 hours</option>
+        <option value="6-8">6-8 hours</option>
+        <option value="8+">8+ hours 🔥</option>
       </select>
 
-      <label>8. Do you agree to the rules?</label>
-      <select id="rules" required>
-        <option disabled selected>Select</option>
-        <option>Yes</option>
-        <option>No</option>
+      <label>Why do you want to join this group?</label>
+      <textarea name="why" rows="4" required></textarea>
+
+      <label>Are you serious about studies?</label>
+      <select name="serious" required>
+        <option value="">--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="Trying">Trying my best</option>
+        <option value="No">No</option>
       </select>
 
-      <label>9. Referral (if someone added you)</label>
-      <input type="text" id="referral" />
+      <label>Agree to the Rules? (No spam, log daily)</label>
+      <select name="rules" required>
+        <option value="">--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
 
-      <label>10. Final Words / Motivation</label>
-      <textarea id="finalwords"></textarea>
+      <label>Referral (optional)</label>
+      <input type="text" name="referral" />
 
-      <button type="submit">🚀 Submit</button>
-      <p id="successMsg" class="hide">✅ Submitted! <a href="https://t.me/+ky1DMi72npk2ZjM1" target="_blank">Join Group</a></p>
+      <label>Final Words</label>
+      <textarea name="final" rows="3"></textarea>
+
+      <button type="submit">Join Group</button>
     </form>
-  </div>
 
+    <div class="linkBox" id="groupLink">
+      <h2>✅ You're In!</h2>
+      <p>Join the group using this link:</p>
+      <a href="https://t.me/+ky1DMi72npk2ZjM1" target="_blank">🔗 Join Telegram Study Group</a>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
