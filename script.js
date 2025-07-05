@@ -1,36 +1,55 @@
 const form = document.getElementById("studyForm");
-const successMsg = document.getElementById("successMsg");
+const groupLink = document.getElementById("groupLink");
 
-const BOT_TOKEN = "7877699696:AAE486elDfuUuHfjrVEdrR5S3bKzQ7KxnjE";
+// Telegram bot setup
+const BOT_TOKEN = "YOUR_BOT_TOKEN_HERE";
 const CHAT_ID = "-1002704210959"; // Replace with your group chat ID
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const username = document.getElementById("username").value;
-  const cls = document.getElementById("class").value;
-  const exams = Array.from(document.querySelectorAll(".checkboxes input:checked")).map(cb => cb.value).join(", ");
-  const hours = document.getElementById("hours").value;
-  const why = document.getElementById("why").value;
-  const serious = document.getElementById("serious").value;
-  const rules = document.getElementById("rules").value;
-  const referral = document.getElementById("referral").value;
-  const finalwords = document.getElementById("finalwords").value;
+  const formData = new FormData(form);
+  let allFilled = true;
 
-  const message = `📥 *New Registration!*
+  for (let [key, value] of formData.entries()) {
+    if (key !== "referral" && key !== "final" && value.trim() === "") {
+      allFilled = false;
+      break;
+    }
+  }
+
+  if (!allFilled) {
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  // Convert FormData to message
+  const name = formData.get("name");
+  const username = formData.get("username");
+  const cls = formData.get("class");
+  const exam = formData.get("exam");
+  const hours = formData.get("hours");
+  const why = formData.get("why");
+  const serious = formData.get("serious");
+  const rules = formData.get("rules");
+  const referral = formData.get("referral") || "N/A";
+  const finalWords = formData.get("final") || "N/A";
+
+  const message = `📝 *New Registration!*
 
 👤 *Name:* ${name}
 📱 *Telegram:* @${username}
 🎓 *Class:* ${cls}
-🎯 *Exams:* ${exams}
-⏱️ *Study Hours:* ${hours}
+🎯 *Target Exam:* ${exam}
+⏱ *Study Hours:* ${hours}
 🧠 *Serious?:* ${serious}
-📜 *Rules Accepted:* ${rules}
-📝 *Why Join:* ${why}
-🤝 *Referral:* ${referral}
-💬 *Final Words:* ${finalwords}`;
+✅ *Rules Accepted?:* ${rules}
 
+🗣 *Why Join:* ${why}
+🤝 *Referral:* ${referral}
+💬 *Final Words:* ${finalWords}`;
+
+  // Send to Telegram
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -40,16 +59,17 @@ form.addEventListener("submit", function(e) {
       parse_mode: "Markdown"
     })
   })
-  .then(res => res.json())
-  .then(data => {
-    if (data.ok) {
-      successMsg.classList.remove("hide");
-      form.reset();
-    } else {
-      alert("Failed to send to Telegram.");
-    }
-  })
-  .catch(err => {
-    alert("Error:", err);
-  });
+    .then(res => res.json())
+    .then(data => {
+      if (data.ok) {
+        form.style.display = "none";
+        groupLink.style.display = "block";
+      } else {
+        alert("❌ Failed to send message to Telegram.");
+      }
+    })
+    .catch(err => {
+      console.error("Telegram Error:", err);
+      alert("❌ Error sending message.");
+    });
 });
