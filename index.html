@@ -3,45 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Serious Aspirants Form</title>
+  <title>Study Hours Tracker Registration</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
-    <h1>Join the Serious Aspirants Group</h1>
-    <form id="aspirantForm">
-      <div class="input-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" required />
+  <div class="form-box">
+    <h2>🔥 Study Hours Tracker - Registration</h2>
+    <p class="tagline">"Jo sapne raaton mein jalte hain, unhe din ke andhere bhi nahi rok sakte."</p>
+    <form id="studyForm">
+
+      <label>1. Full Name</label>
+      <input type="text" id="name" required />
+
+      <label>2. Telegram Username (without @)</label>
+      <input type="text" id="username" required />
+
+      <label>3. Class / Grade</label>
+      <select id="class" required>
+        <option disabled selected>Select</option>
+        <option>Class 9</option>
+        <option>Class 10</option>
+        <option>Class 11</option>
+        <option>Class 12</option>
+        <option>Dropper</option>
+        <option>College Student</option>
+        <option>Other</option>
+      </select>
+
+      <label>4. Exam You’re Preparing For</label>
+      <div class="checkboxes">
+        <label><input type="checkbox" value="JEE Main" /> JEE Main</label>
+        <label><input type="checkbox" value="JEE Advanced" /> JEE Advanced</label>
+        <label><input type="checkbox" value="NEET" /> NEET</label>
+        <label><input type="checkbox" value="CUET" /> CUET</label>
+        <label><input type="checkbox" value="Boards" /> Boards</label>
+        <label><input type="checkbox" value="School Exams" /> School Exams</label>
+        <label><input type="checkbox" value="Other" /> Other</label>
       </div>
 
-      <div class="input-group">
-        <label for="class">Your Class</label>
-        <input type="text" id="class" required />
-      </div>
+      <label>5. Daily Study Hours</label>
+      <select id="hours" required>
+        <option disabled selected>Select</option>
+        <option>Less than 2 hours</option>
+        <option>2–4 hours</option>
+        <option>4–6 hours</option>
+        <option>6–8 hours</option>
+        <option>8+ hours 🔥</option>
+      </select>
 
-      <div class="input-group">
-        <label for="serious">Are you serious about studies?</label>
-        <select id="serious" required>
-          <option value="" disabled selected>Select</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-      </div>
+      <label>6. Why do you want to join this group?</label>
+      <textarea id="why" required></textarea>
 
-      <div class="input-group">
-        <label for="telegram">Telegram Username (without @)</label>
-        <input type="text" id="telegram" required />
-      </div>
+      <label>7. Are you serious and consistent?</label>
+      <select id="serious" required>
+        <option disabled selected>Select</option>
+        <option>Yes</option>
+        <option>No</option>
+        <option>Trying my best</option>
+      </select>
 
-      <div class="input-group">
-        <label for="studytime">Daily Study Hours?</label>
-        <input type="text" id="studytime" />
-      </div>
+      <label>8. Do you agree to the rules?</label>
+      <select id="rules" required>
+        <option disabled selected>Select</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
 
-      <button type="submit">Submit</button>
+      <label>9. Referral (if someone added you)</label>
+      <input type="text" id="referral" />
+
+      <label>10. Final Words / Motivation</label>
+      <textarea id="finalwords"></textarea>
+
+      <button type="submit">🚀 Submit</button>
+      <p id="successMsg" class="hide">✅ Submitted! <a href="https://t.me/+ky1DMi72npk2ZjM1" target="_blank">Join Group</a></p>
     </form>
-    <p id="confirmation" class="hidden">✅ Submitted! Check Telegram group.</p>
   </div>
 
   <script src="script.js"></script>
