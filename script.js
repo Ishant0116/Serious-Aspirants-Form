@@ -2,8 +2,8 @@ const form = document.getElementById("aspirantForm");
 const confirmation = document.getElementById("confirmation");
 
 // Replace these with your own Bot Token and Chat ID
-const BOT_TOKEN = "YOUR_BOT_TOKEN_HERE";        // 🔁 Replace this
-const CHAT_ID = "YOUR_CHAT_ID_HERE";            // 🔁 Replace this
+const BOT_TOKEN = "7877699696:AAE486elDfuUuHfjrVEdrR5S3bKzQ7KxnjE";        // 🔁 Replace this
+const CHAT_ID = "-1002704210959";            // 🔁 Replace this
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
