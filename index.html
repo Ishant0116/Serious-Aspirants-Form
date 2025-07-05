@@ -7,20 +7,33 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="form-container">
-    <h1>Join Our Serious Aspirants Group</h1>
+  <div class="container">
+    <h1>Join the Serious Aspirants Group</h1>
     <form id="aspirantForm">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="text" id="class" placeholder="Your Class (e.g. 11th)" required />
-      <select id="serious" required>
-        <option value="" disabled selected>Are You Serious?</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
+      <div class="input-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" required />
+      </div>
+
+      <div class="input-group">
+        <label for="class">Your Class</label>
+        <input type="text" id="class" required />
+      </div>
+
+      <div class="input-group">
+        <label for="serious">Are you serious about studies?</label>
+        <select id="serious" required>
+          <option value="" disabled selected>Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
       <button type="submit">Submit</button>
     </form>
-    <p id="confirmation" style="display:none;">✅ Submitted! Check your Telegram group.</p>
+    <p id="confirmation" class="hidden">✅ Submitted! Check Telegram group.</p>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
