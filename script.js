@@ -1,9 +1,9 @@
 const form = document.getElementById("studyForm");
 const groupLink = document.getElementById("groupLink");
 
-// Telegram Bot Info
+// 🔐 Replace these with YOUR details
 const BOT_TOKEN = "7877699696:AAE486elDfuUuHfjrVEdrR5S3bKzQ7KxnjE";
-const CHAT_ID = "-1002704210959"; // Replace with your group chat ID
+const CHAT_ID = "-1002704210959"; // Your Telegram group chat ID
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -19,7 +19,7 @@ form.addEventListener("submit", function (e) {
   }
 
   if (!allFilled) {
-    alert("❗ Please fill all required fields.");
+    alert("Please fill all required fields.");
     return;
   }
 
@@ -48,7 +48,6 @@ form.addEventListener("submit", function (e) {
 🤝 *Referral:* ${referral}
 💬 *Final Words:* ${finalWords}`;
 
-  // Send to Telegram
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -61,15 +60,15 @@ form.addEventListener("submit", function (e) {
     .then(res => res.json())
     .then(data => {
       if (data.ok) {
-        // Hide form, show link
         form.style.display = "none";
         groupLink.style.display = "block";
       } else {
-        alert("⚠️ Message couldn't be sent to Telegram.");
+        alert("⚠️ Telegram message failed.");
+        console.log(data);
       }
     })
     .catch(err => {
-      console.error("Telegram Error:", err);
-      alert("❌ Something went wrong while sending the form.");
+      alert("❌ Something went wrong.");
+      console.error(err);
     });
 });
